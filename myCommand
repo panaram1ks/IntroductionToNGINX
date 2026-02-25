@@ -1,0 +1,4 @@
+docker run  --name nginx -p 80:80 --hostname ng1 -v /home/parom/IdeaProjects/COURSES/nginx-udemy-container/html:/usr/share/nginx/html -d nginx
+
+docker inspect nginx
+docker stop nginx
