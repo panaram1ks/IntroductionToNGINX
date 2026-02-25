@@ -2,3 +2,7 @@ docker run  --name nginx -p 80:80 --hostname ng1 -v /home/parom/IdeaProjects/COU
 
 docker inspect nginx
 docker stop nginx
+
+
+docker build . -t nodeapp
+docker run -p 8080:8080 --hostname nodeapp1 -d nodeapp
