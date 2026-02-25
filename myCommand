@@ -3,6 +3,24 @@ docker run  --name nginx -p 80:80 --hostname ng1 -v /home/parom/IdeaProjects/COU
 docker inspect nginx
 docker stop nginx
 
-
+// run nodejs app in one docker container
 docker build . -t nodeapp
 docker run -p 8080:8080 --hostname nodeapp1 -d nodeapp
+
+
+
+//create a docker network
+docker network create backendnet
+docker network connect backendnet nodeapp1
+docker network connect backendnet nodeapp2
+docker network connect backendnet nodeapp3
+
+docker run --hostname nodeapp1 --name nodeapp1 -p 8080:8080 -d nodeapp
+docker run --hostname nodeapp2 --name nodeapp2 -p 8080:8080 -d nodeapp
+docker run --hostname nodeapp3 --name nodeapp3 -p 8080:8080 -d nodeapp
+
+//docker network connect backendnet nginx
+docker run --network backendnet --hostname ng1 --name nginx -p 80:8080 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf -d nginx
+
+
+
