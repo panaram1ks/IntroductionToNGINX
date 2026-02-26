@@ -15,6 +15,12 @@ docker run --network backendnet --hostname ng1 --name nginx -p 80:80 \
   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf \
   -d nginx
 
+# 5. Запуск второй nginx в той же сети который распределяет теже nodeapp'ы
+docker run --network backendnet --hostname ng2 --name nginx2 -p 81:80 \
+  -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf \
+  -d nginx
+
+
 docker inspect nginx
 docker stop nginx
 
