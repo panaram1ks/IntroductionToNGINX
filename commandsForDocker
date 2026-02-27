@@ -27,3 +27,10 @@ docker stop nginx
 sudo lsof -i :80
 sudo systemctl stop apache2
 
+# 6. Зайти в работающий контейнер
+docker exec -it <containerName> bash
+
+docker network disconnect bridge <containerName>
+
+
+
