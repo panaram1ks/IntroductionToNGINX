@@ -1,0 +1,6 @@
+cd nginxConfiguration/app
+npm init -y
+npm install express
+
+docker build -t nodeapp .
+docker run --name nodeapp -p 9999:9999 nodeapp
