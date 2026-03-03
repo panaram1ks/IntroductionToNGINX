@@ -7,9 +7,11 @@ node index.js
 
 
 # browser console
-let ws = new WebSocket("ws://localhost:8085")
+let ws = new WebSocket("ws://localhost:9090")
 ws.onmessage = e => console.log(e.data)
 ws.send("hello")
 
 # start several servers
 node index.js 2222 & node index.js 3333 & node index.js 4444 & node index.js 5555
+
+nginx -c /home/parom/IdeaProjects/COURSES/nginx-udemy-container/WebSocketsWithNGINX/tcp.cfg
