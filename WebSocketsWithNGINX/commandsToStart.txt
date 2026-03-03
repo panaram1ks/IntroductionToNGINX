@@ -15,3 +15,9 @@ ws.send("hello")
 node index.js 2222 & node index.js 3333 & node index.js 4444 & node index.js 5555
 
 nginx -c /home/parom/IdeaProjects/COURSES/nginx-udemy-container/WebSocketsWithNGINX/tcp.cfg
+nginx -s stop
+killall nginx
+
+
+let ws = new WebSocket("ws://localhost:9090/wsapp")
+let ws = new WebSocket("ws://localhost:9090/wschat")
